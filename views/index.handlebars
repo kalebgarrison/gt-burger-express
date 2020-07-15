@@ -10,11 +10,11 @@
 </div>
 <div class="row justify-content-center">
     <div class="col-6 justify-content-center">
-        <h2>Here are your Burgers!</h2>
+        <h2 class="text-right">Here are your Burgers!</h2>
         <ul>
             {{#each burgers}}
             {{#unless devoured}}
-            <li class="list-group-item" id="newBurger"> {{id}}.
+            <li class="list-group-item text-right" id="newBurger"> {{id}}.
                 {{burger_name}}
                 <button type="button" class="btn btn-success btn-sm devoured" id="devouredBtn"
                     data-id="{{id}}">Devour</button>
@@ -29,7 +29,7 @@
             {{#each burgers}}
             {{#if devoured}}
             <li class="list-group-item" id="eaten">
-                {{this.burgers}}
+               {{id}}.{{burger_name}}
             </li>
             {{/if}}
             {{/each}}
@@ -38,9 +38,9 @@
 </div>
 <div class="row justify-content-center">
     <div class="col justify-content-center">
-        <h2>Add more Burgers!</h2>
+        <h2 class="text-center">Add more Burgers!</h2>
         <form class="create-form">
-            <div class="form-group">
+            <div class="form-group text-center">
                 <input type="text" id="btn" name="burger_name" placeholder="New Burger">
                 <button type="submit" class="btn btn-success btn-sm" id="addBtn">Add</button>
             </div>

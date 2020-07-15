@@ -64,15 +64,14 @@ var orm = {
     });
   },
 
-  updateOne: function (table, val1, val2, condition, cb) {
-    const queryString = "UPDATE ";
-    queryString += table;
-    queryString += " SET ";
-    queryString += val1;
-    queryString += " = ";
-    queryString += val2;
+  updateOne: function (table, objColVals, condition, cb) {
+    let queryString = "UPDATE " + table;
+
+    queryString += " SET devoured =";
+    queryString += " 1";
     queryString += " WHERE ";
     queryString += condition;
+
 
     console.log(condition);
     console.log(queryString);

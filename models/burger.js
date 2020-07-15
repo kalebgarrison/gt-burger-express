@@ -1,5 +1,5 @@
 // Import the ORM to create functions that will interact with the database.
-const orm = require("/Users/kalebgarrison/gt/homework/gt-burger-express/config/orm.js");
+const orm = require("../config/orm");
 
 const burger = {
   selectAll: function (cb) {
