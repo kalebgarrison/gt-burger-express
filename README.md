@@ -1,8 +1,5 @@
 # gt-burger-express
 
-# gt-employee-tracker
-
-
 ## Description 
 This is a Burger app that I wrote using express and MySQL that allows users to create and devour burgers. This material is designed to meet the standards set by the GT Full-stack program homework requirements. It is built using the languages mentioned and customized based on mockups in class. 
 
