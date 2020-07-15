@@ -41,27 +41,21 @@ const connection = require("./connection");
 
 // Object for all our SQL statement functions.
 var orm = {
-  selectAll: function(tableInput, cb) {
-  const queryString = "SELECT * FROM " + tableInput + ";";
-    connection.query(queryString, function(err, result) {
+  selectAll: function (tableInput, cb) {
+    const queryString = "SELECT * FROM " + tableInput + ";";
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
       cb(result);
     });
   },
- insertOne: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO " + table;
-
-    queryString += " (";
-    queryString += cols.toString();
-    queryString += ") ";
-    queryString += "VALUES (";
-    queryString += ") ";
-
+  insertOne: function (table, col, val, cb) {
+    const queryString =
+      "INSERT INTO " + table + " (" + col + ")" + " VALUES" +" ('" + val + "')" + ";";
     console.log(queryString);
 
-    connection.query(queryString, vals, function(err, result) {
+    connection.query(queryString, val, function (err, result) {
       if (err) {
         throw err;
       }
@@ -69,26 +63,28 @@ var orm = {
       cb(result);
     });
   },
-  // An example of objColVals would be {name: panther, sleepy: true}
-  updateOne: function(table, objColVals, condition, cb) {
-    var queryString = "UPDATE " + table;
 
+  updateOne: function (table, val1, val2, condition, cb) {
+    const queryString = "UPDATE ";
+    queryString += table;
     queryString += " SET ";
-    queryString += objToSql(objColVals);
+    queryString += val1;
+    queryString += " = ";
+    queryString += val2;
     queryString += " WHERE ";
     queryString += condition;
 
+    console.log(condition);
     console.log(queryString);
-    connection.query(queryString, function(err, result) {
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
 
       cb(result);
     });
-  
-  }
-}
+  },
+};
 // Export the orm object for the model (cat.js)
 
 module.exports = orm;
