@@ -1,12 +1,13 @@
 $(function () {
   $(".devoured").on("click", (event) => {
     event.preventDefault();
-    const burgerID = $(this).data("burgerID");
+    const id = $(this).data("id", burgers.id);
     const newDevState = {
-      devoured: burgerID,
+      devoured: true,
     };
+    console.log(id)
 
-    $.ajax("/api/burgers/" + burgerID, {
+    $.ajax("/api/burgers/" + id, {
       type: "PUT",
     }).then(() => {
       console.log("Changed devoured to ", newDevState);

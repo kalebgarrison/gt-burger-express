@@ -14,10 +14,10 @@
         <ul>
             {{#each burgers}}
             {{#unless devoured}}
-            <li class="list-group-item" id="newBurger">
-                {{this.burger_name}}
+            <li class="list-group-item" id="newBurger"> {{id}}.
+                {{burger_name}}
                 <button type="button" class="btn btn-success btn-sm devoured" id="devouredBtn"
-                    data-burgerId="{{this.id}}">Devour</button>
+                    data-id="{{id}}">Devour</button>
             </li>
             {{/unless}}
             {{/each}}
