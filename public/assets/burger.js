@@ -1,7 +1,7 @@
 $(function () {
   $(".devoured").on("click", (event) => {
     event.preventDefault();
-    const id = $(this).data("id", burgers.id);
+    const id = $(this).data("id");
     const newDevState = {
       devoured: true,
     };
